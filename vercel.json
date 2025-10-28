@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "agent.starknet.id"
+        }
+      ],
+      "destination": "https://agent.starknet.io/$1",
+      "permanent": true
+    }
+  ]
+}
