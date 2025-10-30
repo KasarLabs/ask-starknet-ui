@@ -5,21 +5,21 @@ This repository contains the frontend for Ask Starknet.
 ## Getting Started
 
 ```bash
-bun install
-bun run dev
+pnpm install
+pnpm dev
 ```
 
 The app runs on http://localhost:3000 by default.
 
 ## Available Scripts
 
-- `bun run dev` – launch the Next.js development server.
-- `bun run build` – create a production build.
-- `bun run start` – start the production server.
-- `bun run lint` – run ESLint.
-- `bun run check-types` – run TypeScript in no-emit mode.
-- `bun run format` – check formatting with Prettier.
-- `bun run format:write` – write formatting changes.
+- `pnpm dev` – launch the Next.js development server.
+- `pnpm build` – create a production build.
+- `pnpm start` – start the production server.
+- `pnpm lint` – run ESLint.
+- `pnpm check-types` – run TypeScript in no-emit mode.
+- `pnpm format` – check formatting with Prettier.
+- `pnpm format:write` – write formatting changes.
 
 ## Environment
 

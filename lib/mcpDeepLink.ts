@@ -107,7 +107,18 @@ export function generateMCPDeepLink(
   }
 
   const configJson = JSON.stringify(configToEncode);
-  const encodedConfig = encodeURIComponent(configJson);
+  
+  // For Cursor, VSCode, and Claude, use base64 encoding as per their documentation
+  // For other clients, use URL encoding
+  let encodedConfig: string;
+  if (clientId === 'cursor' || clientId === 'vscode' || clientId === 'claude') {
+    // Base64 encode for Cursor, VSCode, and Claude
+    encodedConfig = btoa(configJson);
+  } else {
+    // URL encode for other clients
+    encodedConfig = encodeURIComponent(configJson);
+  }
+  
   const encodedName = encodeURIComponent(displayName);
 
   const handler = client.handler ? `${client.handler}/` : '';
@@ -199,7 +210,20 @@ function isValidUrl(urlString: string): boolean {
  */
 export function openDeepLink(url: string): boolean {
   try {
-    window.open(url, '_blank');
+    // For custom protocol handlers (cursor://, vscode://, etc.),
+    // create a temporary anchor element and simulate a click
+    // This ensures the OS handles the protocol correctly
+    const a = document.createElement('a');
+    a.href = url;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    
+    // Clean up after a short delay
+    setTimeout(() => {
+      document.body.removeChild(a);
+    }, 100);
+    
     return true;
   } catch (error) {
     console.error('Failed to open deep link:', error);
