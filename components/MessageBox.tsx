@@ -143,7 +143,7 @@ const AnimatedHourglass = ({ interval = 500 }: { interval?: number }) => {
       interval,
     );
     return () => clearInterval(id);
-  }, [interval]);
+  }, [interval, frames.length]);
   return (
     <span className="inline-block mr-1" aria-hidden>
       {frames[i]}

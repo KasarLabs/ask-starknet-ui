@@ -1017,7 +1017,7 @@ const LandingPage = () => {
       console.error('Failed to generate deep link:', err);
       return '#';
     }
-  }, [selectedClient]);
+  }, [selectedClient, mcpConfig]);
 
   const handleLogoClick = () => {
     // Reset all states to initial landing page view
@@ -1407,7 +1407,7 @@ const LandingPage = () => {
                                       <li>Add your environment variables in the configuration</li>
                                     </ol>
                                     <p className="mt-2 pt-2 border-t border-blue-500/20">
-                                      <strong>Tip:</strong> If the server doesn't appear automatically, use the <strong>JSON tab</strong> to copy and paste the configuration manually.
+                                      <strong>Tip:</strong> If the server doesn&apos;t appear automatically, use the <strong>JSON tab</strong> to copy and paste the configuration manually.
                                     </p>
                                   </div>
                                 </div>
@@ -1731,11 +1731,11 @@ const LandingPage = () => {
                                     <span className="text-gray-400">{'}'}</span>
                                   </code>
                                 </pre>
-                              </div>q
+                              </div>
                             </div>
 
                             <p className="text-sm sm:text-base text-black/70 dark:text-white/70 leading-relaxed">
-                              And that's it! You can now start using Ask Starknet.
+                              And that&apos;s it! You can now start using Ask Starknet.
                             </p>
 
                             <div className="flex gap-2 items-start text-xs sm:text-sm text-black/70 dark:text-white/70">
