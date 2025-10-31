@@ -52,8 +52,8 @@ export default function RootLayout({
     },
   };
   return (
-    <html className="h-full" lang="en" suppressHydrationWarning>
-      <body className={cn('h-full', ibmPlexSans.className)}>
+    <html className="min-h-full" lang="en" suppressHydrationWarning>
+      <body className={cn('min-h-full', ibmPlexSans.className)}>
         <GoogleAnalytics />
         <PostHogProviderClient>
           <MathJaxContext config={config}>

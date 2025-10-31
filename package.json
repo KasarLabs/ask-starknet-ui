@@ -30,6 +30,7 @@
     "posthog-js": "^1.224.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^5.5.0",
     "react-katex": "^3.0.1",
     "react-syntax-highlighter": "^15.5.0",
     "react-text-to-speech": "^0.14.5",

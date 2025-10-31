@@ -8,6 +8,9 @@ const nextConfig = {
       {
         hostname: 'pbs.twimg.com',
       },
+      {
+        hostname: 'github.com',
+      },
     ],
   },
   // Optimize compilation
