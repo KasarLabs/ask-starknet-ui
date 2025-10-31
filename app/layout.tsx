@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: 'Ask Starknet - Unlock your Starknet expertise',
   description: 'AI-powered assistant for Starknet and Cairo.',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/ask_logo_white_alpha.png',
   },
 };
 
