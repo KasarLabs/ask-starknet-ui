@@ -12,15 +12,18 @@
   }
 }
 
+html,
 body {
   position: relative;
   min-height: 100vh;
 }
 
+html.dark,
 body.dark {
-  background-color: #000;
+  background-color: #1e1e1e;
 }
 
+html:not(.dark),
 body:not(.dark) {
   background-color: #fcfcf9;
 }

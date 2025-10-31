@@ -499,7 +499,7 @@ const StarknetAgentAnimation = () => {
   const logos = [
     { name: 'Ekubo', url: 'https://pbs.twimg.com/profile_images/1676963409303322624/NuCcNNxa_400x400.png' },
     { name: 'AVNU', url: 'https://pbs.twimg.com/profile_images/1736767433635975168/G1H8l7Ci_400x400.jpg' },
-    { name: 'Vesu', url: 'https://pbs.twimg.com/profile_images/1899459698551562240/_WK4Lfeb_400x400.jpg' },
+    { name: 'Vesu', url: 'https://pbs.twimg.com/profile_images/1982565692663599104/X5i_XGxL_400x400.jpg' },
     { name: 'Extended', url: 'https://pbs.twimg.com/profile_images/1876581196173320192/pF4KQQCb_400x400.jpg' },
     { name: 'Paradex', url: 'https://pbs.twimg.com/profile_images/1940437227642798080/EnotVJl3_400x400.jpg' },
   ];
@@ -658,7 +658,7 @@ const StarknetAgentAnimation = () => {
         <p 
           className={`text-xs sm:text-sm font-medium transition-all duration-500 min-h-[20px] ${
             step === 8 
-              ? 'text-white dark:text-white font-bold' 
+              ? 'text-black dark:text-white font-bold' 
               : 'text-black/70 dark:text-white/70'
           }`}
         >
@@ -695,7 +695,7 @@ const StarknetAgentAnimation = () => {
 
           {/* First Arrow */}
           <div className={`flex-shrink-0 transition-all duration-500 ${step >= 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}>
-            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-white dark:text-white animate-pulse" />
+            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-black dark:text-white animate-pulse" />
           </div>
 
           {/* First Agent with Category */}
@@ -703,7 +703,7 @@ const StarknetAgentAnimation = () => {
             {step >= 2 && (
               <>
                 <div className={`transition-all duration-500 ${step >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
-                  <User className={`w-16 h-16 sm:w-20 sm:h-20 drop-shadow-lg ${step >= 3 ? 'text-gray-400 dark:text-gray-500' : 'text-white dark:text-white'}`} strokeWidth={1.5} />
+                  <User className={`w-16 h-16 sm:w-20 sm:h-20 drop-shadow-lg ${step >= 3 ? 'text-gray-400 dark:text-gray-500' : 'text-black dark:text-white'}`} strokeWidth={1.5} />
                 </div>
                 
                 {/* Category Display below agent */}
@@ -715,7 +715,7 @@ const StarknetAgentAnimation = () => {
                         DeFi
                       </span>
                     ) : (
-                      <span className="text-white dark:text-white">
+                      <span className="text-black dark:text-white">
                         {categories[categoryIndex - 1]}
                       </span>
                     )}
@@ -727,7 +727,7 @@ const StarknetAgentAnimation = () => {
 
           {/* Second Arrow */}
           <div className={`flex-shrink-0 transition-all duration-500 ${step >= 4 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}>
-            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-white dark:text-white animate-pulse" />
+            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-black dark:text-white animate-pulse" />
           </div>
 
           {/* Protocol Logos - Carousel */}
@@ -765,9 +765,9 @@ const StarknetAgentAnimation = () => {
                         key={`logo-${i}`}
                         className={`rounded-full overflow-hidden flex items-center justify-center flex-shrink-0 transition-all duration-500 ${
                           isFinalSelection
-                            ? 'w-20 h-20 ring-4 ring-white dark:ring-white shadow-2xl shadow-white/50 opacity-100 scale-125'
+                            ? 'w-20 h-20 ring-4 ring-black dark:ring-white shadow-2xl shadow-black/50 dark:shadow-white/50 opacity-100 scale-125'
                             : isAtActivePosition && step >= 5
-                            ? 'w-16 h-16 ring-4 ring-white dark:ring-white shadow-xl shadow-white/50 opacity-100'
+                            ? 'w-16 h-16 ring-4 ring-black dark:ring-white shadow-xl shadow-black/50 dark:shadow-white/50 opacity-100'
                             : 'w-12 h-12 opacity-30 scale-90'
                         }`}
                       >
@@ -788,7 +788,7 @@ const StarknetAgentAnimation = () => {
 
           {/* Third Arrow */}
           <div className={`flex-shrink-0 transition-all duration-500 ${step >= 6 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}>
-            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-white dark:text-white animate-pulse" />
+            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-black dark:text-white animate-pulse" />
           </div>
 
           {/* Tool Roulette */}
@@ -825,7 +825,7 @@ const StarknetAgentAnimation = () => {
 
           {/* Fourth Arrow */}
           <div className={`flex-shrink-0 transition-all duration-500 ${step >= 8 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'}`}>
-            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-white dark:text-white animate-pulse" />
+            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 text-black dark:text-white animate-pulse" />
           </div>
 
           {/* Final Checkmark */}
@@ -834,7 +834,7 @@ const StarknetAgentAnimation = () => {
               <div className="relative animate-in fade-in zoom-in duration-500">
                 <Check 
                   className={`w-16 h-16 sm:w-20 sm:h-20 transition-colors duration-1000 ${
-                    checkmarkGray ? 'text-gray-500 dark:text-gray-400' : 'text-white dark:text-white'
+                    checkmarkGray ? 'text-gray-500 dark:text-gray-400' : 'text-black dark:text-white'
                   }`} 
                   strokeWidth={2} 
                 />
@@ -855,7 +855,7 @@ const StarknetAgentAnimation = () => {
               (i === 2 && step >= 3) ||
               (i === 3 && step >= 6) ||
               (i === 4 && step >= 8)
-                ? 'bg-white dark:bg-white' 
+                ? 'bg-black dark:bg-white' 
                 : 'bg-gray-400 dark:bg-gray-600'
             }`}
           />
@@ -2064,7 +2064,7 @@ const FloatingIcons = ({ isAnimating }: { isAnimating?: boolean }) => {
     {
       id: 6,
       image:
-        'https://pbs.twimg.com/profile_images/1899459698551562240/_WK4Lfeb_400x400.jpg',
+        'https://pbs.twimg.com/profile_images/1982565692663599104/X5i_XGxL_400x400.jpg',
       twitter: 'vesuxyz',
       x: '10%',
       y: '45%',
