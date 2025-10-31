@@ -282,6 +282,29 @@ body:not(.dark) {
   animation: float6 8s ease-in-out infinite;
 }
 
+/* Custom scrollbar styles for docs section */
+.docs-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.docs-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.docs-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.docs-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+}
+
+.docs-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+
 /* Mobile-specific responsive improvements */
 @media (max-width: 640px) {
   body {
