@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: 'Ask Starknet - Unlock your Starknet expertise',
   description: 'AI-powered assistant for Starknet and Cairo.',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/ask_logo_white_alpha.png',
   },
 };
 
@@ -52,8 +52,8 @@ export default function RootLayout({
     },
   };
   return (
-    <html className="h-full" lang="en" suppressHydrationWarning>
-      <body className={cn('h-full', ibmPlexSans.className)}>
+    <html className="min-h-full" lang="en" suppressHydrationWarning>
+      <body className={cn('min-h-full', ibmPlexSans.className)}>
         <GoogleAnalytics />
         <PostHogProviderClient>
           <MathJaxContext config={config}>
