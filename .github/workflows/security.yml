@@ -73,21 +73,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run OSV Scanner
-        uses: google/osv-scanner-action@v1
+        uses: google/osv-scanner-action@v1.9.2
         with:
           scan-args: |-
-            --lockfile=pnpm-lock.yaml
-            --format=json
-            --output=osv-results.json
+            --recursive
+            ./
         continue-on-error: true
-
-      - name: Upload OSV scan results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: osv-scan-results
-          path: osv-results.json
-          retention-days: 30
 
   # Check for outdated packages that might have security patches
   outdated-check:
