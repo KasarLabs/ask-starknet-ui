@@ -1,6 +1,5 @@
 # Security Audit Workflow
 # This workflow runs security audits on every push and PR, plus scheduled daily scans
-# It helps detect vulnerabilities like CVE-2025-55182 (React2Shell) early
 
 name: Security Audit
 
@@ -208,4 +207,5 @@ jobs:
                 labels: ['security', 'dependencies', 'high-priority']
               });
             }
+
 
