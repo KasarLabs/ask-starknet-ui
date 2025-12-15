@@ -8,6 +8,7 @@ import Footer from '../Footer';
 import FloatingIcons from './FloatingIcons';
 import MCPConfigSection from './MCPConfigSection';
 import DocsSection from './DocsSection';
+import ExploreSection from './ExploreSection';
 
 type TabType = 'auto' | 'json';
 type DocsTabType = 'what' | 'getting-started' | 'plugins' | 'environments';
@@ -18,6 +19,7 @@ const LandingPage = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showMCPConfig, setShowMCPConfig] = useState(false);
   const [showDocsModal, setShowDocsModal] = useState(false);
+  const [showExplore, setShowExplore] = useState(false);
   const [activeTab, setActiveTab] = useState<TabType>('auto');
   const [activeDocsTab, setActiveDocsTab] = useState<DocsTabType>('what');
   const [selectedClient, setSelectedClient] = useState<string>('cursor');
@@ -43,6 +45,9 @@ const LandingPage = () => {
     }
     if (showDocsModal) {
       return 'max(15vh, 80px)';
+    }
+    if (showExplore) {
+      return 'max(10vh, 60px)';
     }
     return isMobile ? 'max(25vh, 120px)' : 'calc(50vh - 100px)';
   };
@@ -77,18 +82,27 @@ const LandingPage = () => {
   const handleMCPClick = () => {
     setShowMCPConfig(!showMCPConfig);
     if (showDocsModal) setShowDocsModal(false);
+    if (showExplore) setShowExplore(false);
   };
 
   const handleDocsClick = () => {
     setShowDocsModal(!showDocsModal);
     if (showMCPConfig) setShowMCPConfig(false);
+    if (showExplore) setShowExplore(false);
     setActiveDocsTab('what');
+  };
+
+  const handleExploreClick = () => {
+    setShowExplore(!showExplore);
+    if (showMCPConfig) setShowMCPConfig(false);
+    if (showDocsModal) setShowDocsModal(false);
   };
 
   const handleLogoClick = () => {
     // Reset all states to initial landing page view
     setShowMCPConfig(false);
     setShowDocsModal(false);
+    setShowExplore(false);
     setPrompt('');
     setActiveTab('auto');
 
@@ -169,6 +183,12 @@ const LandingPage = () => {
             Docs
           </button>
           <button
+            onClick={handleExploreClick}
+            className="text-black dark:text-white font-medium text-base sm:text-2xl hover:scale-105 transition-transform duration-200"
+          >
+            Explore
+          </button>
+          <button
             onClick={() => window.open('https://cairo-coder.com', '_blank')}
             className="text-black dark:text-white font-medium text-base sm:text-2xl hover:scale-105 transition-transform duration-200"
           >
@@ -189,7 +209,7 @@ const LandingPage = () => {
 
           {/* Centered Title and Input - title fixed, content grows below */}
           <div
-            className="flex flex-col items-center w-full max-w-3xl mx-auto z-10 relative transition-all duration-700 mt-16 sm:mt-0"
+            className={`flex flex-col items-center w-full ${showExplore ? 'max-w-7xl' : 'max-w-3xl'} mx-auto z-10 relative transition-all duration-700 mt-16 sm:mt-0`}
             style={{
               paddingTop: getPaddingTop(),
             }}
@@ -201,6 +221,8 @@ const LandingPage = () => {
                   ? 'Build your own Starknet Agents'
                   : showDocsModal
                     ? 'Ask Starknet Documentation'
+                    : showExplore
+                    ? 'Explore Ecosystem'
                     : 'Unlock your Starknet expertise.'}
               </h1>
               {showMCPConfig && (
@@ -215,14 +237,19 @@ const LandingPage = () => {
                   Learn how to build powerful Agentic workflows with Ask Starknet.
                 </p>
               )}
+              {showExplore && (
+                <p className="text-black/60 dark:text-white/70 text-xs sm:text-sm md:text-base text-center max-w-2xl px-4">
+                   Discover amazing projects built on Starknet
+                </p>
+              )}
             </div>
 
-            {/* Search Input / MCP Config - with growing transition */}
+            {/* Search Input / MCP Config / Explore - with growing transition */}
             <div className="w-full overflow-visible">
               {/* Container that grows */}
               <div
                 className={`w-full transition-all duration-700 ease-in-out overflow-visible ${
-                  showMCPConfig || showDocsModal
+                  showMCPConfig || showDocsModal || showExplore
                     ? 'px-0 py-0 bg-transparent'
                     : isTransitioning
                       ? 'bg-transparent px-3 sm:px-5 pt-3 sm:pt-5 pb-2 rounded-lg'
@@ -235,13 +262,15 @@ const LandingPage = () => {
                       : '250px'
                     : showDocsModal
                       ? '450px'
+                    : showExplore
+                      ? '600px'
                       : 'auto',
                 }}
               >
                 {/* Search Input Content - slides left */}
                 <div
                   className={`transition-all duration-400 ${
-                    showMCPConfig || showDocsModal
+                    showMCPConfig || showDocsModal || showExplore
                       ? 'opacity-0 -translate-x-8 h-0 overflow-hidden pointer-events-none'
                       : 'opacity-100 translate-x-0 h-auto'
                   }`}
@@ -269,7 +298,7 @@ const LandingPage = () => {
                       onChange={(e) => setPrompt(e.target.value)}
                       placeholder="Ask anything..."
                       className="bg-transparent placeholder:text-black/50 dark:placeholder:text-white/50 text-base sm:text-lg text-black dark:text-white resize-none focus:outline-none w-full py-2 sm:py-3 max-h-48"
-                      autoFocus={!showMCPConfig}
+                      autoFocus={!showMCPConfig && !showExplore && !showDocsModal}
                       disabled={isTransitioning}
                       minRows={1}
                     />
@@ -334,6 +363,18 @@ const LandingPage = () => {
                     />
                   )}
                 </div>
+
+                 {/* Explore Section Content */}
+                 <div
+                  className={`transition-all duration-700 ease-in-out ${
+                    showExplore
+                      ? 'opacity-100 translate-x-0'
+                      : 'opacity-0 translate-x-4 h-0 overflow-hidden pointer-events-none'
+                  }`}
+                >
+                  {showExplore && <ExploreSection />}
+                </div>
+
               </div>
             </div>
           </div>
@@ -347,4 +388,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-

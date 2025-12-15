@@ -31,6 +31,18 @@ const nextConfig = {
           }
         : false,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/proxy/yield/:path*',
+        destination: 'http://195.154.191.21:3042/:path*',
+      },
+      {
+        source: '/api/proxy/war/:path*',
+        destination: 'http://195.154.191.21:5004/api/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
